@@ -1,9 +1,4 @@
-//
-//  HomeView.swift
-//  walk_the_dogs
-//
-//  Created by Jerry on 2022-04-03.
-//
+
 
 import SwiftUI
 
@@ -13,19 +8,25 @@ struct HomeView: View {
     init() {
         UITabBar.appearance().isTranslucent = false
         UITabBar.appearance().barTintColor = UIColor(named: "Gray")
-        }
+    }
     
     var body: some View{
         TabView(selection: $tabSelection)
         {
+            HealthView()
+                .tag(0)
+                .tabItem{
+                    Text("Walking Steps")
+                    Image(systemName: "figure.walk")
+                }
             WeatherView( )
-               .tag(0)
+               .tag(1)
                .tabItem {
                    Text("Weather")
                    Image(systemName: "sun.dust.fill")
                }
-           MessageView()
-               .tag(1)
+            MessageView()
+               .tag(2)
                .tabItem {
                    Text("Messages")
                    Image(systemName: "plus.message")

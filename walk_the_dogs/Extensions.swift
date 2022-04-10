@@ -7,6 +7,12 @@ extension Color {
     static let chatPeach = Color(#colorLiteral(red: 1, green: 0.8470588235, blue: 0.768627451, alpha: 1))
 }
 
+extension Date {
+    static func mondayAt12AM() -> Date {
+        return Calendar(identifier: .iso8601).date(from: Calendar(identifier: .iso8601).dateComponents([.yearForWeekOfYear, .weekOfYear], from: Date()))!
+    }
+}
+
 
 let lightGreyColor = Color(red: 239.0/255.0, green: 243.0/255.0, blue: 244.0/255.0, opacity: 1.0)
 
