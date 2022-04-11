@@ -40,6 +40,15 @@
 		C4CEB94428033DE800B9110F /* HealthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CEB94328033DE800B9110F /* HealthView.swift */; };
 		C4CEB9482803439400B9110F /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C4CEB9472803439400B9110F /* HealthKit.framework */; };
 		C4CEB94A280397A200B9110F /* Step.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CEB949280397A200B9110F /* Step.swift */; };
+		C4CEB94D2803A43100B9110F /* NotificationBannerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C4CEB94C2803A43100B9110F /* NotificationBannerSwift */; };
+		C4CEB94F2803A49400B9110F /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CEB94E2803A49400B9110F /* NotificationView.swift */; };
+		C4CEB9522803B1C600B9110F /* corgi.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C4CEB9512803B1C600B9110F /* corgi.jpg */; };
+		C4CEB9552803C06F00B9110F /* TodoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CEB9542803C06F00B9110F /* TodoListView.swift */; };
+		C4CEB9572803C0CC00B9110F /* TodoListInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CEB9562803C0CC00B9110F /* TodoListInfo.swift */; };
+		C4CEB9592803C0F600B9110F /* Priority.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CEB9582803C0F600B9110F /* Priority.swift */; };
+		C4CEB95B2803C14D00B9110F /* TodoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CEB95A2803C14D00B9110F /* TodoListViewModel.swift */; };
+		C4CEB95D2803C1B300B9110F /* ListItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CEB95C2803C1B300B9110F /* ListItemView.swift */; };
+		C4CEB95F2803C1E900B9110F /* AddEditTodoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CEB95E2803C1E900B9110F /* AddEditTodoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -75,6 +84,14 @@
 		C4CEB9452803439400B9110F /* walk_the_dogs.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = walk_the_dogs.entitlements; sourceTree = "<group>"; };
 		C4CEB9472803439400B9110F /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		C4CEB949280397A200B9110F /* Step.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Step.swift; sourceTree = "<group>"; };
+		C4CEB94E2803A49400B9110F /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
+		C4CEB9512803B1C600B9110F /* corgi.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = corgi.jpg; sourceTree = "<group>"; };
+		C4CEB9542803C06F00B9110F /* TodoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListView.swift; sourceTree = "<group>"; };
+		C4CEB9562803C0CC00B9110F /* TodoListInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListInfo.swift; sourceTree = "<group>"; };
+		C4CEB9582803C0F600B9110F /* Priority.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Priority.swift; sourceTree = "<group>"; };
+		C4CEB95A2803C14D00B9110F /* TodoListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListViewModel.swift; sourceTree = "<group>"; };
+		C4CEB95C2803C1B300B9110F /* ListItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemView.swift; sourceTree = "<group>"; };
+		C4CEB95E2803C1E900B9110F /* AddEditTodoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditTodoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +102,7 @@
 				C4AFFE2027FA67F1004EEED4 /* FirebaseFirestoreSwift-Beta in Frameworks */,
 				C4CEB9482803439400B9110F /* HealthKit.framework in Frameworks */,
 				C4AFFE1C27FA67F1004EEED4 /* FirebaseAuth in Frameworks */,
+				C4CEB94D2803A43100B9110F /* NotificationBannerSwift in Frameworks */,
 				C4AFFE1E27FA67F1004EEED4 /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -112,6 +130,8 @@
 		C4AFFE0927FA6723004EEED4 /* walk_the_dogs */ = {
 			isa = PBXGroup;
 			children = (
+				C4CEB9532803C04500B9110F /* Todo */,
+				C4CEB9502803B13A00B9110F /* Resources */,
 				C4CEB9452803439400B9110F /* walk_the_dogs.entitlements */,
 				C4AFFE4327FA8494004EEED4 /* Messages */,
 				C4AFFE4227FA847D004EEED4 /* Weather */,
@@ -130,6 +150,7 @@
 				C4AFFE4E27FA8695004EEED4 /* HomeView.swift */,
 				C4CEB94128033CC200B9110F /* HealthStore.swift */,
 				C4CEB94328033DE800B9110F /* HealthView.swift */,
+				C4CEB94E2803A49400B9110F /* NotificationView.swift */,
 			);
 			path = walk_the_dogs;
 			sourceTree = "<group>";
@@ -150,6 +171,9 @@
 				C4AFFE2227FA6828004EEED4 /* Message.swift */,
 				C4AFFE4827FA85C2004EEED4 /* Page.swift */,
 				C4CEB949280397A200B9110F /* Step.swift */,
+				C4CEB9562803C0CC00B9110F /* TodoListInfo.swift */,
+				C4CEB9582803C0F600B9110F /* Priority.swift */,
+				C4CEB95A2803C14D00B9110F /* TodoListViewModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -203,6 +227,24 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C4CEB9502803B13A00B9110F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C4CEB9512803B1C600B9110F /* corgi.jpg */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		C4CEB9532803C04500B9110F /* Todo */ = {
+			isa = PBXGroup;
+			children = (
+				C4CEB9542803C06F00B9110F /* TodoListView.swift */,
+				C4CEB95C2803C1B300B9110F /* ListItemView.swift */,
+				C4CEB95E2803C1E900B9110F /* AddEditTodoView.swift */,
+			);
+			path = Todo;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -223,6 +265,7 @@
 				C4AFFE1B27FA67F1004EEED4 /* FirebaseAuth */,
 				C4AFFE1D27FA67F1004EEED4 /* FirebaseFirestore */,
 				C4AFFE1F27FA67F1004EEED4 /* FirebaseFirestoreSwift-Beta */,
+				C4CEB94C2803A43100B9110F /* NotificationBannerSwift */,
 			);
 			productName = walk_the_dogs;
 			productReference = C4AFFE0727FA6723004EEED4 /* walk_the_dogs.app */;
@@ -254,6 +297,7 @@
 			mainGroup = C4AFFDFE27FA6723004EEED4;
 			packageReferences = (
 				C4AFFE1A27FA67F1004EEED4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				C4CEB94B2803A43100B9110F /* XCRemoteSwiftPackageReference "NotificationBanner" */,
 			);
 			productRefGroup = C4AFFE0827FA6723004EEED4 /* Products */;
 			projectDirPath = "";
@@ -269,6 +313,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4CEB9522803B1C600B9110F /* corgi.jpg in Resources */,
 				C4AFFE1227FA6724004EEED4 /* Preview Assets.xcassets in Resources */,
 				C4AFFE0F27FA6724004EEED4 /* Assets.xcassets in Resources */,
 				C4AFFE3F27FA7CA7004EEED4 /* weatherData.json in Resources */,
@@ -286,7 +331,10 @@
 				C4CEB94A280397A200B9110F /* Step.swift in Sources */,
 				C4AFFE0D27FA6723004EEED4 /* ContentView.swift in Sources */,
 				C4AFFE4B27FA860E004EEED4 /* RegisterView.swift in Sources */,
+				C4CEB94F2803A49400B9110F /* NotificationView.swift in Sources */,
+				C4CEB95B2803C14D00B9110F /* TodoListViewModel.swift in Sources */,
 				C4AFFE3B27FA7B2E004EEED4 /* WeatherDataView.swift in Sources */,
+				C4CEB9552803C06F00B9110F /* TodoListView.swift in Sources */,
 				C4AFFE3D27FA7C37004EEED4 /* ModelData.swift in Sources */,
 				C4AFFE4127FA7F1F004EEED4 /* WeatherRow.swift in Sources */,
 				C4AFFE4F27FA8695004EEED4 /* HomeView.swift in Sources */,
@@ -296,6 +344,7 @@
 				C4AFFE2C27FA68A0004EEED4 /* Extensions.swift in Sources */,
 				C4AFFE3927FA7525004EEED4 /* WeatherManager.swift in Sources */,
 				C4AFFE4727FA8575004EEED4 /* ViewRouter.swift in Sources */,
+				C4CEB95F2803C1E900B9110F /* AddEditTodoView.swift in Sources */,
 				C4CEB94428033DE800B9110F /* HealthView.swift in Sources */,
 				C4AFFE2A27FA6883004EEED4 /* MessageBubble.swift in Sources */,
 				C4AFFE3727FA742B004EEED4 /* LoadingView.swift in Sources */,
@@ -303,11 +352,14 @@
 				C4AFFE3327FA7108004EEED4 /* WeatherView.swift in Sources */,
 				C4AFFE4D27FA862A004EEED4 /* LoginView.swift in Sources */,
 				C4AFFE3527FA717B004EEED4 /* WelcomeView.swift in Sources */,
+				C4CEB9592803C0F600B9110F /* Priority.swift in Sources */,
 				C4AFFE2627FA685D004EEED4 /* TitleRow.swift in Sources */,
+				C4CEB95D2803C1B300B9110F /* ListItemView.swift in Sources */,
 				C4AFFE2827FA6872004EEED4 /* MessageField.swift in Sources */,
 				C4AFFE1927FA6786004EEED4 /* MessagesManager.swift in Sources */,
 				C4CEB94228033CC200B9110F /* HealthStore.swift in Sources */,
 				C4AFFE3127FA6F0B004EEED4 /* LocationManager.swift in Sources */,
+				C4CEB9572803C0CC00B9110F /* TodoListInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -526,6 +578,14 @@
 				kind = branch;
 			};
 		};
+		C4CEB94B2803A43100B9110F /* XCRemoteSwiftPackageReference "NotificationBanner" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Daltron/NotificationBanner";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -543,6 +603,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C4AFFE1A27FA67F1004EEED4 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = "FirebaseFirestoreSwift-Beta";
+		};
+		C4CEB94C2803A43100B9110F /* NotificationBannerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C4CEB94B2803A43100B9110F /* XCRemoteSwiftPackageReference "NotificationBanner" */;
+			productName = NotificationBannerSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

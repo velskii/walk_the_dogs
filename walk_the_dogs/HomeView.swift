@@ -13,20 +13,26 @@ struct HomeView: View {
     var body: some View{
         TabView(selection: $tabSelection)
         {
-            HealthView()
+            TodoListView().environmentObject(TodoListViewModel())
                 .tag(0)
+                .tabItem{
+                    Text("Schedule")
+                    Image(systemName: "heart.text.square")
+                }
+            HealthView()
+                .tag(1)
                 .tabItem{
                     Text("Walking Steps")
                     Image(systemName: "figure.walk")
                 }
             WeatherView( )
-               .tag(1)
+               .tag(2)
                .tabItem {
                    Text("Weather")
                    Image(systemName: "sun.dust.fill")
                }
             MessageView()
-               .tag(2)
+               .tag(3)
                .tabItem {
                    Text("Messages")
                    Image(systemName: "plus.message")
