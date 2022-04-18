@@ -125,7 +125,6 @@
 				C4AFFE4A27FA860D004EEED4 /* RegisterView.swift */,
 				C4AFFE4C27FA862A004EEED4 /* LoginView.swift */,
 				C4AFFE4E27FA8695004EEED4 /* HomeView.swift */,
-				C4CEB94128033CC200B9110F /* HealthStore.swift */,
 				C4CEB94328033DE800B9110F /* HealthView.swift */,
 				C4CEB94E2803A49400B9110F /* NotificationView.swift */,
 				C449E80D280CF12700BCEBD3 /* TaskListView.swift */,
@@ -226,6 +225,7 @@
 		C4AFFE2F27FA6EF7004EEED4 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				C4CEB94128033CC200B9110F /* HealthStore.swift */,
 				C4AFFE1827FA6786004EEED4 /* MessagesManager.swift */,
 				C4AFFE3027FA6F0B004EEED4 /* LocationManager.swift */,
 				C4AFFE3827FA7525004EEED4 /* WeatherManager.swift */,
