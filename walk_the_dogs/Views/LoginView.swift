@@ -8,16 +8,12 @@ Version:    1.001
 */
 
 import SwiftUI
-
+import Firebase
 
 
 struct LoginView : View {
     
     @StateObject var viewRouter: ViewRouter
-    
-    
-    let storedUsername = "admin"
-    let storedPassword = "123"
     
     @State var username: String = ""
     @State var password: String = ""
@@ -43,32 +39,38 @@ struct LoginView : View {
                 }
                 
                 Button(action: {
-//                    if self.username == storedUsername && self.password == storedPassword
-                    if self.username != "" && self.password != ""
-                    {
-                        viewRouter.currentPage = .home
-                        self.authenticationDidFail = false
-                    } else {
-                        self.authenticationDidFail = true
-                    }
-                    
+                    login()
                 })
                 {
                    LoginButtonContent()
                 }
-                
-                Button(action: {
-                    viewRouter.currentPage = .register
-                })
-                {
-                   RegisterButtonContent()
-                }
+                Spacer()
+                    .frame(height: 80)
+                Text("No account yet? Register.")
+                    .font(.system(size: 20))
+                    .offset(y: -10)
+                    .onTapGesture {
+                        viewRouter.currentPage = .register
+                    }
                 
             }
             .padding()
             
         }
     }
+    
+    func login() {
+        Auth.auth().signIn(withEmail: username, password: password) { (result, error) in
+            if error != nil {
+                self.authenticationDidFail = true
+                print(error?.localizedDescription ?? "")
+            } else {
+                viewRouter.currentPage = .home
+                self.authenticationDidFail = false
+            }
+        }
+    }
+    
         
 }
 
@@ -81,11 +83,10 @@ struct LoginView : View {
 
 struct WelcomeText: View {
     var body: some View{
-        return Text("Hello World")
+        return Text("Walking your dogs")
             .font(.largeTitle)
             .fontWeight(.semibold)
             .padding(.bottom, 20)
-            
     }
 }
 
@@ -93,7 +94,7 @@ struct UserImage: View {
     
     var body: some View{
         
-        return Image("userImage")
+        return Image("corgi")
             .resizable()
             .aspectRatio(contentMode: .fill)
             .frame(width: 150, height: 150)

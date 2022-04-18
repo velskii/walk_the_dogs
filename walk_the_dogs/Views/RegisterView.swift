@@ -8,12 +8,12 @@ Version:    1.001
 */
 
 import SwiftUI
-
+import Firebase
 
 struct RegisterView : View {
     
     @StateObject var viewRouter: ViewRouter
-    
+    @State var registerError: Bool = false
     
     @State var username: String = ""
     @State var password: String = ""
@@ -32,22 +32,41 @@ struct RegisterView : View {
                 
                 
                 Button(action: {
-                    // TODO
-                    
+                    register()
                 })
                 {
                    RegisterButtonContent()
                 }
-                
-                Button(action: {
-                    viewRouter.currentPage = .login
-                })
-                {
-                   LoginButtonContent()
-                }
+                Spacer()
+                    .frame(height: 80)
+                Text("Already have an account? Login.")
+                    .font(.system(size: 20))
+                    .offset(y: -10)
+                    .onTapGesture {
+                        viewRouter.currentPage = .login
+                    }
                 
             }
             .padding()
+            
+        }
+        .alert(isPresented: $registerError) {
+            Alert(
+                title: Text("Register Error"), message: Text("Error registering, please check your password and repeat password."), dismissButton: Alert.Button.cancel()
+            )
+        }.padding()
+    }
+    
+    func register() {
+        if repeat_password != password {
+            self.registerError = true
+        }
+        Auth.auth().createUser(withEmail: username, password: password) { (result, error) in
+            if error != nil {
+                self.registerError = true
+            } else {
+                viewRouter.currentPage = .login
+            }
             
         }
     }

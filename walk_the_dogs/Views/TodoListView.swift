@@ -41,7 +41,7 @@ struct TodoListView: View {
                    .searchable(text: searchBinding)
                }
            }
-           .navigationTitle("Walk the dogs schedule")
+           .navigationTitle("Schedule")
            .toolbar {
                ToolbarItem(placement: .navigationBarTrailing) {
                    Button(role: .destructive) {
@@ -85,9 +85,8 @@ struct TodoListView: View {
    }
 }
 
-struct TodoListView_Previews: PreviewProvider {
-    static var previews: some View {
-//        TodoListView()
-        TodoListView().environmentObject(TodoListViewModel(testData: true))
-    }
-}
+//struct TodoListView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        TodoListView().environmentObject(TodoListViewModel(testData: true))
+//    }
+//}

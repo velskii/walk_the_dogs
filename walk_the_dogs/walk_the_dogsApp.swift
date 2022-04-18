@@ -1,9 +1,4 @@
-//
-//  walk_the_dogsApp.swift
-//  walk_the_dogs
-//
-//  Created by Jerry on 2022-04-03.
-//
+
 
 import SwiftUI
 import Firebase
@@ -28,13 +23,18 @@ struct walk_the_dogsApp: App {
             
         }
     }
+//    @StateObject var listViewModel: ListViewModel = ListViewModel()
     
     var body: some Scene {
         WindowGroup {
             ContentView(viewRouter: viewRouter)
+//            TaskListView()
+//            HealthView()
             
-//            NotificationView()
-            
+//            NavigationView{
+//                TaskListView()
+//            }
+//            .environmentObject(listViewModel)
         }
     }
 }

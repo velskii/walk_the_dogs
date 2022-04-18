@@ -31,11 +31,11 @@ struct HomeView: View {
                    Text("Weather")
                    Image(systemName: "sun.dust.fill")
                }
-            MessageView()
+            SettingsView( )
                .tag(3)
                .tabItem {
-                   Text("Messages")
-                   Image(systemName: "plus.message")
+                   Text("Settings")
+                   Image(systemName: "rectangle.and.pencil.and.ellipsis")
                }
         }
         

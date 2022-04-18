@@ -1,4 +1,7 @@
 import Foundation
+import Firebase
+import SwiftUI
+
 
 struct TodoListInfo: Codable {
     var todos = [TodoItem]()
@@ -86,6 +89,45 @@ struct TodoListInfo: Codable {
     }
 
     mutating private func loadPersistedJsonData() {
+        
+//        let db = Firestore.firestore()
+//        var todoz = [TodoItem]()
+//        db.collection("todo").getDocuments() { (querySnapshot, err) in
+//            if let err = err {
+//                print("Error getting documents: \(err)")
+//            } else {
+//                for document in querySnapshot!.documents {
+//                    let formatter = DateFormatter()
+//                    formatter.dateFormat = "MMMM dd, yyyy 'at' HH:mm"
+//                    let date = formatter.date(from: document.get("dueDate") as! String)!
+//
+//                    let calendar = Calendar.current
+//                    let year = calendar.component(.year, from: date)
+//                    let month = calendar.component(.month, from: date)
+//                    let day = calendar.component(.day, from: date)
+//
+//                    let hour = calendar.component(.hour, from: date)
+//                    let minutes = calendar.component(.minute, from: date)
+//
+//
+//
+//                    let newTodo: TodoItem = TodoItem(
+//                        id: document.get("id") as! String,
+//                        title: document.get("title") as! String,
+//                        description: document.get("description") as! String,
+//                        priority: 1,
+//                        isCompleted: (document.get("isCompleted") != nil),
+//                        dueDate: TodoListInfo.TodoItem.DueDate(year: year, month: month, day: day, hour: hour, minute: minutes),
+//                        notificationId: document.get("notificationId") as! String,
+//                        hasNotification: (document.get("hasNotification") != nil)
+//                    )
+//                    todoz.append(newTodo)
+//
+//                }
+//            }
+//        }
+//        self.todos = todoz
+        
         if let url = try? FileManager.default.url(
             for: .applicationSupportDirectory,
             in: .userDomainMask,
@@ -99,6 +141,33 @@ struct TodoListInfo: Codable {
     }
 
     static func persistTodoList(_ todoListInfo: TodoListInfo) {
+//        let db = Firestore.firestore()
+//        var ref: DocumentReference? = nil
+//        for todo in todoListInfo.todos {
+////            print("id" + todo.id)
+////            print("title" + todo.title)
+////            print("description" + todo.description)
+//            ref = db.collection("todo").addDocument(data: [
+//
+//                "id": todo.id,
+//                "title": todo.title,
+//                "description": todo.description,
+//                "isCompleted": todo.isCompleted,
+//                "notificationId":todo.notificationId,
+//                "hasNotification": todo.hasNotification,
+//                "dueDate": todo.dueDate.formattedDateString(),
+//                "dueDateIsValid": todo.dueDateIsValid,
+//            ]) { err in
+//                if let err = err {
+//                    print("Error adding document: \(err)")
+//                } else {
+//                    print("Document added with ID: \(ref!.documentID)")
+//                }
+//            }
+//
+//        }
+          
+        
         if let json = todoListInfo.json, let url = try? FileManager.default.url(
             for: .applicationSupportDirectory,
             in: .userDomainMask,

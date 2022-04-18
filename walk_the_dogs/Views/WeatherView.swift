@@ -1,18 +1,17 @@
-//
-//  WeatherDataView.swift
-//  walk_the_dogs
-//
-//  Created by Jerry on 2022-04-03.
-//
+
 
 import SwiftUI
 
-struct WeatherDataView: View {
+struct WeatherView: View {
     
-    var weather: ResponseBody
+    var weatherManager = WeatherManager()
+    @State var weather: ResponseBody?
     
     var body: some View {
-        ZStack(alignment: .leading) {
+        VStack{
+            if let weather = weather{
+                
+                ZStack(alignment: .leading) {
                     VStack {
                         VStack(alignment: .leading, spacing: 5) {
                             Text(weather.name)
@@ -39,13 +38,13 @@ struct WeatherDataView: View {
                                 Spacer()
                                 
                                 Text(weather.main.feelsLike.roundDouble() + "°")
-                                    .font(.system(size: 100))
+                                    .font(.system(size: 30))
                                     .fontWeight(.bold)
                                     .padding()
                             }
                             
                             Spacer()
-                                .frame(height:  30)
+                                .frame(height:  10)
                             
                             AsyncImage(url: URL(string: "https://cdn.pixabay.com/photo/2020/01/24/21/33/city-4791269_960_720.png")) { image in
                                 image
@@ -55,13 +54,16 @@ struct WeatherDataView: View {
                             } placeholder: {
                                 ProgressView()
                             }
-                            
                             Spacer()
+                                .frame(height:  330)
+                            
                         }
                         .frame(maxWidth: .infinity, alignment: .trailing)
                     }
                     .padding()
                     .frame(maxWidth: .infinity, alignment: .leading)
+                    
+                    
                     
                     VStack {
                         Spacer()
@@ -85,22 +87,42 @@ struct WeatherDataView: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding()
                         .padding(.bottom, 20)
-                        .foregroundColor(Color(hue: 0.656, saturation: 0.787, brightness: 0.354))
-                        .background(.white)
+                        .background(Color.gray)
                         .cornerRadius(20, corners: [.topLeft, .topRight])
                         Spacer()
                             .frame(height:  100)
                     }
                 }
                 .edgesIgnoringSafeArea(.bottom)
-                .background(Color(hue: 0.656, saturation: 0.787, brightness: 0.354))
-                .preferredColorScheme(.dark)
-        
+                .background(.white)
+                
+            } else {
+                ProgressView()
+                    .progressViewStyle(CircularProgressViewStyle(tint: .white))
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .task {
+                        await getWeather(city: "Toronto")
+                    }
+            }
+        }
+        .background(.white)
+    }
+    
+    func getWeather(city: String) async {
+        do {
+            weather = try await weatherManager.getCurrentWeather(city: city)
+        } catch {
+            print("Error getting weather: \(error)")
+        }
+    }
+    func convertFarenheitToCelsius(fahrenheit: String) -> String{
+        return String(format: "%f", (Double(fahrenheit) ?? 325 - 32) * 5 / 9 )
     }
 }
 
-struct WeatherDataView_Previews: PreviewProvider {
+struct WeatherView_Previews: PreviewProvider {
     static var previews: some View {
-        WeatherDataView(weather: previewWeather)
+        WeatherView()
     }
 }
+

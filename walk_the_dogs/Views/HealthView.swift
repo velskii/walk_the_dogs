@@ -2,9 +2,12 @@
 
 import HealthKit
 import SwiftUI
+import Firebase
+import FirebaseCore
 
 struct HealthView: View {
     
+    var db = Firestore.firestore()
     private var healthStore: HealthStore?
     @State private var steps: [Step] = [Step]()
     
@@ -12,22 +15,35 @@ struct HealthView: View {
         healthStore = HealthStore()
     }
     
+    
     private func updateUIFromStatistics( statisticsCollection: HKStatisticsCollection ) {
-        
-        let startDate = Calendar.current.date(byAdding: .day, value: -7, to: Date())!
-        let endDate = Date()
-        
-        
-        statisticsCollection.enumerateStatistics(from: startDate, to: endDate){ (statistics, stop) in
+        steps = [Step]()
+        db.collection("settings").document("health")
+            .getDocument { (document, error) in
+            if let document = document, document.exists {
+                let d = Int(document.data()!["days"] as! String)! - 1
+                let startDate = Calendar.current.date(byAdding: .day, value: -d, to: Date())!
+                let endDate = Date()
+                
+                
+                statisticsCollection.enumerateStatistics(from: startDate, to: endDate){ (statistics, stop) in
+                    
+                    let count = statistics.sumQuantity()?.doubleValue(for: .count())
+                    
+                    let step = Step(count: Int(count ?? 0), date: statistics.startDate)
+                    
+                    steps.append(step)
+                    
+                }
+                steps.sort{ $0.date > $1.date }
+            } else {
+                print("Document does not exist")
+            }
             
-            let count = statistics.sumQuantity()?.doubleValue(for: .count())
-            
-            let step = Step(count: Int(count ?? 0), date: statistics.startDate)
-            
-            steps.append(step)
-            
+             
         }
-        steps.sort{ $0.date > $1.date }
+        
+        
         
     }
     
@@ -41,6 +57,7 @@ struct HealthView: View {
                         .opacity(0.5)
                 }
             }
+            .frame( maxHeight: .infinity )
             .navigationTitle("Walking steps")
         }
         
@@ -61,6 +78,8 @@ struct HealthView: View {
                         }
                     }
                 }
+                
+                
             }
     }
 }
